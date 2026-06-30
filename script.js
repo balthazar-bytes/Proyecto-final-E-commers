@@ -162,6 +162,42 @@ formContacto.addEventListener('submit', async function (e) {
 
 
 
+let productos = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+obtenerProductos();
+async function obtenerProductos(){
+    const respuesta = await fetch("https://fakestoreapi.com/products");
+    const datos = await respuesta.json();
+
+    productos = datos; // guardamos en la variable global
+
+    // Ocultamos el spinner de carga
+    document.getElementById('loading-productos').classList.add('loading--hidden');
+
+    const gridProductos = document.getElementById("grid-productos");
+    datos.forEach(producto => {
+        let card = document.createElement('div');
+        card.classList.add('producto-card'); // <-- clase necesaria para los estilos
+
+        card.innerHTML = `
+            <div class="producto-card__img-wrapper">
+                <img src="${producto.image}" alt="${producto.title}" class="producto-card__img">
+            </div>
+            <div class="producto-card__body">
+                <span class="producto-card__categoria">${producto.category}</span>
+                <h3 class="producto-card__nombre">${producto.title}</h3>
+            </div>
+            <div class="producto-card__footer">
+                <span class="producto-card__precio">$${producto.price}</span>
+                <button class="producto-card__btn" onclick="agregarAlCarrito(${producto.id})">
+                    + Agregar
+                </button>
+            </div>
+        `;
+
+        gridProductos.appendChild(card);
+    });
+}
 
 
