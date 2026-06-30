@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ShopNow — Tu tienda online de confianza. Encontrá los mejores productos con los mejores precios. Electrónica, ropa, joyería y más.">
+    <meta name="keywords" content="tienda online, ecommerce, productos, electrónica, ropa, compras online">
+    <meta name="author" content="ShopNow">
+
+    <!-- Open Graph (para compartir en redes) -->
+    <meta property="og:title" content="ShopNow — Tu tienda online">
+    <meta property="og:description" content="Encontrá los mejores productos con los mejores precios.">
+    <meta property="og:type" content="website">
+
+    <title>ShopNow — Tu tienda online</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER
+    ============================================================ -->
+    <header class="header" id="inicio">
+        <div class="header__container">
+
+            <!-- Logo -->
+            <a href="#inicio" class="header__logo" aria-label="ShopNow - Inicio">
+                <span class="logo__icon">🛍️</span>
+                <span class="logo__text">ShopNow</span>
+            </a>
+
+            <!-- Navegación principal -->
+            <nav class="header__nav" id="main-nav" aria-label="Navegación principal">
+                <ul class="nav__list" role="list">
+                    <li><a href="#inicio" class="nav__link nav__link--active">Inicio</a></li>
+                    <li><a href="#productos" class="nav__link">Productos</a></li>
+                    <li><a href="#resenas" class="nav__link">Reseñas</a></li>
+                    <li><a href="#contacto" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <!-- Acciones del header -->
+            <div class="header__actions">
+                <!-- Botón carrito -->
+                <button class="btn-cart" id="btn-abrir-carrito" aria-label="Abrir carrito de compras">
+                    🛒
+                    <span class="cart-badge" id="contador-carrito">0</span>
+                </button>
+                <!-- Menú hamburguesa (mobile) -->
+                <button class="btn-menu" id="btn-menu" aria-label="Abrir menú" aria-expanded="false">
+                    <span class="btn-menu__line"></span>
+                    <span class="btn-menu__line"></span>
+                    <span class="btn-menu__line"></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section class="hero" aria-label="Banner principal">
+        <div class="hero__content">
+            <p class="hero__tag">✨ Nuevos productos cada semana</p>
+            <h1 class="hero__title">Tu tienda online,<br><span class="hero__title--highlight">sin complicaciones</span></h1>
+            <p class="hero__desc">Encontrá los mejores productos con los mejores precios. Envíos rápidos, pagos seguros y devolución gratis.</p>
+            <div class="hero__ctas">
+                <a href="#productos" class="btn btn--primary">Ver productos</a>
+                <a href="#resenas" class="btn btn--outline">Ver reseñas</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============================================================
+         SECCIÓN PRODUCTOS (Flexbox)
+    ============================================================ -->
+    <main>
+        <section class="section productos" id="productos">
+            <div class="section__header">
+                <h2 class="section__title">Nuestros Productos</h2>
+                <p class="section__subtitle">Explorá nuestra colección traída directamente desde la API</p>
+            </div>
+
+            <!-- Filtro de categorías -->
+            <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoría">
+                <button class="filtro-btn filtro-btn--active" data-categoria="all" id="filtro-all">Todos</button>
+                <button class="filtro-btn" data-categoria="electronics" id="filtro-electronics">Electrónica</button>
+                <button class="filtro-btn" data-categoria="jewelery" id="filtro-jewelery">Joyería</button>
+                <button class="filtro-btn" data-categoria="men's clothing" id="filtro-men">Ropa Hombre</button>
+                <button class="filtro-btn" data-categoria="women's clothing" id="filtro-women">Ropa Mujer</button>
+            </div>
+
+            <!-- Loading state -->
+            <div class="loading" id="loading-productos" aria-live="polite">
+                <div class="loading__spinner" aria-hidden="true"></div>
+                <p>Cargando productos...</p>
+            </div>
+
+            <!-- Grid de productos (Flexbox) -->
+            <div class="productos__grid" id="grid-productos" role="list" aria-label="Lista de productos">
+                <!-- Las cards se inyectan con JS -->
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECCIÓN RESEÑAS (CSS Grid)
+        ============================================================ -->
+        <section class="section resenas" id="resenas" aria-labelledby="resenas-titulo">
+            <div class="section__header">
+                <h2 class="section__title" id="resenas-titulo">Lo que dicen nuestros clientes</h2>
+                <p class="section__subtitle">Miles de compradores confían en ShopNow</p>
+            </div>
+
+            <!-- Grid de reseñas -->
+            <div class="resenas__grid">
+
+                <article class="resena-card resena-card--featured" role="article">
+                    <div class="resena-card__stars" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="resena-card__text">"Increíble experiencia de compra. Los productos llegan súper rápido y la calidad es exactamente como se muestra. Ya hice 3 compras y siempre quedé contento."</p>
+                    <div class="resena-card__author">
+                        <img src="https://i.pravatar.cc/48?img=1" alt="Foto de perfil de Martín García" class="resena-card__avatar" width="48" height="48">
+                        <div>
+                            <strong>Martín García</strong>
+                            <span>Buenos Aires</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="resena-card" role="article">
+                    <div class="resena-card__stars" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="resena-card__text">"El servicio al cliente es excelente. Tuve un problema con mi pedido y lo resolvieron en menos de 24 horas. Muy recomendable."</p>
+                    <div class="resena-card__author">
+                        <img src="https://i.pravatar.cc/48?img=5" alt="Foto de perfil de Sofía López" class="resena-card__avatar" width="48" height="48">
+                        <div>
+                            <strong>Sofía López</strong>
+                            <span>Córdoba</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="resena-card" role="article">
+                    <div class="resena-card__stars" aria-label="4 estrellas">⭐⭐⭐⭐</div>
+                    <p class="resena-card__text">"Buena variedad de productos y precios competitivos. El sistema de filtros es muy útil para encontrar lo que buscás rápido."</p>
+                    <div class="resena-card__author">
+                        <img src="https://i.pravatar.cc/48?img=8" alt="Foto de perfil de Carlos Méndez" class="resena-card__avatar" width="48" height="48">
+                        <div>
+                            <strong>Carlos Méndez</strong>
+                            <span>Rosario</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="resena-card" role="article">
+                    <div class="resena-card__stars" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="resena-card__text">"Las fotos de los productos son fieles a la realidad. Compré una remera y era exactamente como la mostraban. Calidad premium."</p>
+                    <div class="resena-card__author">
+                        <img src="https://i.pravatar.cc/48?img=9" alt="Foto de perfil de Lucía Fernández" class="resena-card__avatar" width="48" height="48">
+                        <div>
+                            <strong>Lucía Fernández</strong>
+                            <span>Mendoza</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="resena-card" role="article">
+                    <div class="resena-card__stars" aria-label="5 estrellas">⭐⭐⭐⭐⭐</div>
+                    <p class="resena-card__text">"Siempre encuentro lo que busco. La interfaz es muy intuitiva y el proceso de compra es rápido y seguro. Mi tienda favorita."</p>
+                    <div class="resena-card__author">
+                        <img src="https://i.pravatar.cc/48?img=12" alt="Foto de perfil de Diego Romero" class="resena-card__avatar" width="48" height="48">
+                        <div>
+                            <strong>Diego Romero</strong>
+                            <span>La Plata</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SECCIÓN CONTACTO (Responsive con Media Queries)
+        ============================================================ -->
+        <section class="section contacto" id="contacto" aria-labelledby="contacto-titulo">
+            <div class="contacto__wrapper">
+
+                <!-- Info de contacto -->
+                <div class="contacto__info">
+                    <h2 class="section__title" id="contacto-titulo">¿Tenés alguna duda?</h2>
+                    <p class="contacto__desc">Completá el formulario y te respondemos en menos de 24 horas. También podés contactarnos por alguno de estos medios:</p>
+                    <ul class="contacto__lista" role="list">
+                        <li class="contacto__item">
+                            <span class="contacto__icon" aria-hidden="true">📧</span>
+                            <span>baltirial04@gmail.com.com</span>
+                        </li>
+                        <li class="contacto__item">
+                            <span class="contacto__icon" aria-hidden="true">📱</span>
+                            <span>+54 11 3056-1745</span>
+                        </li>
+                        <li class="contacto__item">
+                            <span class="contacto__icon" aria-hidden="true">🕐</span>
+                            <span>Lunes a Viernes, 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Formulario de contacto (Formspree) -->
+                <div class="contacto__form-wrapper">
+                    <form
+                        class="form-contacto"
+                        id="form-contacto"
+                        action="https://formspree.io/f/xgojlrln"
+                        method="POST"
+                        novalidate
+                        aria-label="Formulario de contacto"
+                    >
+                        <div class="form-group" id="group-nombre">
+                            <label for="nombre" class="form-label">Nombre completo <span aria-hidden="true">*</span></label>
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                class="form-input"
+                                placeholder="Ej: Juan Pérez"
+                                required
+                                autocomplete="name"
+                                aria-required="true"
+                                aria-describedby="error-nombre"
+                            >
+                            <span class="form-error" id="error-nombre" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group" id="group-email">
+                            <label for="email" class="form-label">Correo electrónico <span aria-hidden="true">*</span></label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-input"
+                                placeholder="Ej: juan@email.com"
+                                required
+                                autocomplete="email"
+                                aria-required="true"
+                                aria-describedby="error-email"
+                            >
+                            <span class="form-error" id="error-email" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group" id="group-mensaje">
+                            <label for="mensaje" class="form-label">Mensaje <span aria-hidden="true">*</span></label>
+                            <textarea
+                                id="mensaje"
+                                name="mensaje"
+                                class="form-input form-textarea"
+                                placeholder="Escribí tu consulta acá..."
+                                required
+                                rows="5"
+                                aria-required="true"
+                                aria-describedby="error-mensaje"
+                            ></textarea>
+                            <span class="form-error" id="error-mensaje" role="alert" aria-live="polite"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full" id="btn-enviar">
+                            Enviar mensaje
+                        </button>
+
+                        <!-- Mensaje de éxito / error del envío -->
+                        <div class="form-feedback" id="form-feedback" aria-live="polite"></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <a href="#inicio" class="header__logo" aria-label="ShopNow - Volver al inicio">
+                    <span class="logo__icon">🛍️</span>
+                    <span class="logo__text">ShopNow</span>
+                </a>
+                <p class="footer__tagline">Tu tienda online de confianza.</p>
+            </div>
+
+            <nav class="footer__nav" aria-label="Navegación del footer">
+                <ul class="footer__list" role="list">
+                    <li><a href="#inicio" class="footer__link">Inicio</a></li>
+                    <li><a href="#productos" class="footer__link">Productos</a></li>
+                    <li><a href="#resenas" class="footer__link">Reseñas</a></li>
+                    <li><a href="#contacto" class="footer__link">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <p class="footer__copy">© 2025 ShopNow. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         SIDEBAR CARRITO (oculto por defecto)
+    ============================================================ -->
+    <aside class="carrito-sidebar" id="carrito-sidebar" aria-label="Carrito de compras" aria-hidden="true">
+        <div class="carrito__header">
+            <h2 class="carrito__titulo">🛒 Mi Carrito</h2>
+            <button class="carrito__cerrar" id="btn-cerrar-carrito" aria-label="Cerrar carrito">✕</button>
+        </div>
+
+        <!-- Lista de items del carrito -->
+        <div class="carrito__items" id="carrito-items" role="list" aria-live="polite">
+            <!-- Se inyectan con JS -->
+        </div>
+
+        <!-- Mensaje de carrito vacío -->
+        <div class="carrito__vacio" id="carrito-vacio">
+            <span aria-hidden="true">🛒</span>
+            <p>Tu carrito está vacío.<br>¡Agregá productos!</p>
+        </div>
+
+        <!-- Footer del carrito -->
+        <div class="carrito__footer" id="carrito-footer">
+            <div class="carrito__total-row">
+                <span>Total:</span>
+                <strong class="carrito__total" id="carrito-total">$0.00</strong>
+            </div>
+            <button class="btn btn--primary btn--full" id="btn-comprar">
+                Finalizar compra
+            </button>
+        </div>
+    </aside>
+
+    <!-- Overlay oscuro detrás del carrito -->
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <!-- ============================================================
+         SCRIPT
+    ============================================================ -->
+    <script src="script.js"></script>
+</body>
+</html>
