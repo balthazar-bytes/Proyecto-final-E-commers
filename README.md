@@ -47,6 +47,3 @@ Proyecto-final-E-commers/
 6. Modificá cantidades o eliminá productos desde el carrito.
 7. Completá el formulario de Contacto para enviar consultas.
 
-## Deploy
-
-🔗 [Ver sitio en Netlify](#) ← *(reemplazar con la URL real al subir)*
